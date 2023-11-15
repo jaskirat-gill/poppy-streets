@@ -11,7 +11,8 @@
 ## Database Schema
 
 The database dump can be found in "./Backend/file.sql" The database dump includes all the statements required to recreate the database using the following commands with appropriate substitutions: 
-```mysql -u username -p
+```
+mysql -u username -p
 mysql> create database mydb;
 mysql> use mydb;
 mysql> source file.sql;
@@ -29,14 +30,16 @@ For mapping we use the "mapbox" api (mapbox.com). Google maps currently has not 
 
 This function requires 3 files
 1. Variables (GIVEN) - This is given in "/src" and contains:
-``` mapbox_style : //Here you can specify a specific themed mapbox map or leave it as the default,
+``` 
+    mapbox_style : //Here you can specify a specific themed mapbox map or leave it as the default,
     center_long : //center longitude value of the map (currently set to center of canada)
     center_lat :  // Center latitude value of the map (currently set center of canada)
     website_description // Easy access to make changes
 ```
 2. database_secrets.txt (NOT GIVEN) - This is not given and must be created in "/Backend" and named exactly "database_secrets.txt"
     Below are the values used for development. Feel free to copy/paste or adjust to your liking:
-``` database_name = "poppy_streets"
+``` 
+    database_name = "poppy_streets"
     database_host = "localhost"
     database_user = "root"
     database_port ="4000"
@@ -45,7 +48,8 @@ This function requires 3 files
 ```
 3. clientSecrets.js (NOT GIVEN) - this is not given and must be created in "/src" and named exactly "clientSecrets.js"
     Below are the values used for development. Feel free to copy/paste or adjust to your liking
-``` export const secrets = {
+``` 
+        export const secrets = {
         database_origin : "http://localhost:4000",
         client_origin : "http://localhost:3000",
         mapbox_token : INSERT TOKEN HERE
