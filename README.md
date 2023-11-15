@@ -32,22 +32,24 @@ This function requires 3 files
 ``` mapbox_style : //Here you can specify a specific themed mapbox map or leave it as the default,
     center_long : //center longitude value of the map (currently set to center of canada)
     center_lat :  // Center latitude value of the map (currently set center of canada)
-    website_description // Easy access to make changes```
+    website_description // Easy access to make changes
+```
 2. database_secrets.txt (NOT GIVEN) - This is not given and must be created in "/Backend" and named exactly "database_secrets.txt"
     Below are the values used for development. Feel free to copy/paste or adjust to your liking:
-    ```database_name = "poppy_streets"
-        database_host = "localhost"
-        database_user = "root"
-        database_port ="4000"
-        database_password = MYSQL PASSWORD HERE
-        client_origin = "http://localhost:3000"```
+``` database_name = "poppy_streets"
+    database_host = "localhost"
+    database_user = "root"
+    database_port ="4000"
+    database_password = MYSQL PASSWORD HERE
+    client_origin = "http://localhost:3000"
+```
 3. clientSecrets.js (NOT GIVEN) - this is not given and must be created in "/src" and named exactly "clientSecrets.js"
     Below are the values used for development. Feel free to copy/paste or adjust to your liking
-    ```export const secrets = {
-    database_origin : "http://localhost:4000",
-    client_origin : "http://localhost:3000",
-    mapbox_token : INSERT TOKEN HERE
-}
+``` export const secrets = {
+        database_origin : "http://localhost:4000",
+        client_origin : "http://localhost:3000",
+        mapbox_token : INSERT TOKEN HERE
+    }
 ```
 
 ## Packages
