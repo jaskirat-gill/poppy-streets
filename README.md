@@ -1,5 +1,13 @@
 # Poppy Streets
 
+## Steps To Run
+1. Recreate database (See Database schena subsection)
+2. Obtain map token (See Map subsection)
+3. Setup Secrets (see secrets & variables subsection)
+4. Install packages (see packages subsection)
+5. Run ```python main.py``` in "backend" directory
+6. Run ```npm start``` in "src" directory
+
 ## Database Schema
 
 The database dump can be found in "./Backend/file.sql" The database dump includes all the statements required to recreate the database using the following commands with appropriate substitutions: 
