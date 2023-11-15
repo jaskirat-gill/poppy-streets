@@ -6,7 +6,8 @@ The database dump can be found in "./Backend/file.sql" The database dump include
 ```mysql -u username -p
 mysql> create database mydb;
 mysql> use mydb;
-mysql> source file.sql;```
+mysql> source file.sql;
+```
 
 The actual database has two tables.
 1. Cities - Each row has a "name". "province", "country", Southwest and northeast coordinates (SEE NOTE 1 AT BOTtOM)
@@ -38,7 +39,8 @@ This function requires 3 files
     database_origin : "http://localhost:4000",
     client_origin : "http://localhost:3000",
     mapbox_token : INSERT TOKEN HERE
-}```
+}
+```
 
 ## Packages
 
