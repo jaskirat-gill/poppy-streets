@@ -59,7 +59,8 @@ This function requires 3 files
 ## Packages
 
 In the "/backend" directory run
-```pip search . > all_packages.txt
+```
+    pip search . > all_packages.txt
 
     pip install -r all_packages.txt
 
