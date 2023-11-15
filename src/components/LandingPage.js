@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-import { secrets } from "../secrets";
+import { secrets } from "../clientSecrets";
 import { variables } from "../variables";
 
 // Class displays the map that is shown on landing page. List of cities is populated from database calls

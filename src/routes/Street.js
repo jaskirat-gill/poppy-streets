@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import { useParams } from "react-router-dom";
-import { secrets } from "../secrets";
+import { secrets } from "../clientSecrets";
 import { variables } from "../variables";
 
 // Class displays Street page, depending on what parameter is passed into the url

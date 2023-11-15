@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Poppy Streets
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Database Schema
 
-## Available Scripts
+The database dump can be found in "./Backend/file.sql" The database dump includes all the statements required to recreate the database using the following commands with appropriate substitutions: 
+```mysql -u username -p
+mysql> create database mydb;
+mysql> use mydb;
+mysql> source file.sql;```
 
-In the project directory, you can run:
+The actual database has two tables.
+1. Cities - Each row has a "name". "province", "country", Southwest and northeast coordinates (SEE NOTE 1 AT BOTtOM)
+1. Streets - Each row has a "name". "province", "city", Southwest and northeast coordinates (SEE NOTE 1 AT BOTtOM), story, street_sign_image_url (optional), resources (optional)
 
-### `npm start`
+## Map
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+For mapping we use the "mapbox" api (mapbox.com). Google maps currently has not free tier that allows users to use it's maps however mapbox allows 50,000 map loads a month free. Due to this being an extremely large amount, this application used the mapbox api. For this application to run, you must sign up for an account and generate a token key. See "secrets and variables" section for more information
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Secrets And Variables
 
-### `npm test`
+This function requires 3 files
+1. Variables (GIVEN) - This is given in "/src" and contains:
+``` mapbox_style : //Here you can specify a specific themed mapbox map or leave it as the default,
+    center_long : //center longitude value of the map (currently set to center of canada)
+    center_lat :  // Center latitude value of the map (currently set center of canada)
+    website_description // Easy access to make changes```
+2. database_secrets.txt (NOT GIVEN) - This is not given and must be created in "/Backend" and named exactly "database_secrets.txt"
+    Below are the values used for development. Feel free to copy/paste or adjust to your liking:
+    ```database_name = "poppy_streets"
+        database_host = "localhost"
+        database_user = "root"
+        database_port ="4000"
+        database_password = MYSQL PASSWORD HERE
+        client_origin = "http://localhost:3000"```
+3. clientSecrets.js (NOT GIVEN) - this is not given and must be created in "/src" and named exactly "clientSecrets.js"
+    Below are the values used for development. Feel free to copy/paste or adjust to your liking
+    ```export const secrets = {
+    database_origin : "http://localhost:4000",
+    client_origin : "http://localhost:3000",
+    mapbox_token : INSERT TOKEN HERE
+}```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Packages
 
-### `npm run build`
+In the "/backend" directory run
+```pip search . > all_packages.txt
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    pip install -r all_packages.txt
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+To install needed packages (mysql, flask, CORS)
+In "/src" run
+```npm install```
+to install all packages for react. If any packages fail add the ```--force``` flag, sometimes the material-ui caused weird conflicts but they can be safely ignored
+## Notes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. The coordinate system used requires a coordinate for a southwest (bottom left) boundary and a northeast (top right) boundary. A rectangle is then drawn based on these coordinates for adjusting the view of the map. Anytime the center coordinate is required, the average longitude/latitude is calculated.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
